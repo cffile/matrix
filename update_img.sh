@@ -5,6 +5,8 @@
 # update_prepare() function
 #
 
+set -x
+
 usage="usage: update_img.sh [option]
     -h print this help message
     -f update floppy disk
@@ -69,7 +71,7 @@ update_files()
 # update the matrix kernel in the floopy image
 update_flpy()
 {
-    flpy_img = $image_dir/matrix-flpy.img
+    flpy_img="$image_dir/matrix-flpy.img"
 
     if [ ! -e $flpy_img ]; then
 	die "$flpy_img not found"
@@ -93,7 +95,7 @@ update_flpy()
 # update the matrix kernel in the hard disk image
 update_hd()
 {
-    hd_img = $image_dir/matrix-hd.img
+    hd_img="$image_dir/matrix-hd.img"
 
     if [ ! -e $hd_img ]; then
 	die "$hd_img not found"
